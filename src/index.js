@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-
-import { store } from './createStore';
 
 import './index.css';
 import App from './App';
+import { store } from './createStore';
 
 const app = (
 	<Provider store={store}>
 		<BrowserRouter>
-			<Switch>
-				<Route path='/' exact={true} component={App} />
-			</Switch>
+			<App />
 		</BrowserRouter>
 	</Provider>
 );
