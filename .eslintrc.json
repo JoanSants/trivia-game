@@ -1,25 +1,44 @@
 {
     "env": {
         "browser": true,
-        "es6": true
+		"es6": true,
+		"jest": true
     },
-    "extends": [ "react-app", "prettier"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
     "parserOptions": {
-        "ecmaVersion": 2018
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
     },
     "plugins": [
-		"react",
-		"prettier"
+        "react"
     ],
     "rules": {
-		"prettier/prettier": [
-			"error",
-			{
-				"trailingComma": "es5",
-				"jsxSingleQuote": true,
-				"singleQuote": true,
-				"useTabs": true
-			}
-		]
+		"comma-dangle": ["error", {
+            "arrays": "never",
+            "objects": "never",
+            "imports": "never",
+            "exports": "never",
+            "functions": "ignore"
+        }],
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "indent": ["error", "tab"],
+        "no-tabs": ["error", { "allowIndentationTabs": true }],
+		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
+		"global-require": 0,
+		"import/no-dynamic-require": 0,
+        "no-underscore-dangle": 0,
+		"react/prop-types": [2, { "ignore": ["children"] }],
+		"react/no-did-update-set-state": 0
     }
 }
