@@ -18,20 +18,20 @@ describe('Text component', () => {
 	});
 
 	describe('Renders', () => {
+		let wrapper;
+		beforeEach(() => wrapper = setup({ children: 'content', size: 'small' }));
+
 		it('Should render a Text component', () => {
-			const wrapper = setup();
 			const component = findElementByAttr(wrapper, 'Text');
 			expect(component.length).toBe(1);
 		});
 
 		it('Should render Text children', () => {
-			const wrapper = setup({ children: 'content' });
 			const component = findElementByAttr(wrapper, 'Text');
 			expect(component.text()).toBe('content');
 		});
 
 		it('Should insert class as expected', () => {
-			const wrapper = setup({ size: 'small' });
 			const component = findElementByAttr(wrapper, 'Text');
 			expect(component.hasClass('Text--small')).toBeTruthy();
 		})
