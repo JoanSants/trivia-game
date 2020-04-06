@@ -1,28 +1,44 @@
 * {
-	margin: 0px;
-	padding: 0px;
-	margin-block-start: 0px;
-	margin-block-end: 0px;
-	margin-inline-start: 0px;
-	margin-inline-end: 0px;
-	box-sizing: border-box
+	margin:0;
+	padding: 0;
 }
 
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
 
 html {
 	font-size: 62.5%;
+	box-sizing: border-box;
 }
 
 body {
-	overflow: hidden;
-	font-family: "Montserrat";
-	font-weight: 500
+	position: relative;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+	font-family: 'MontSerrat';
+	font-weight: 400;
+	line-height: 1.6;
+	background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+	height: 100vh;
+}
+
+a {
+	text-decoration: none;
 }
 
 :root {
 	--color-primary: #a80038;
 	--color-primary-light: #ca0043;
 	--color-primary-dark: #222831;
+
+	--color-primary-rgb: rgba(168,0,58,.9);
+	--color-primary-light-rgb: rgba(202,0,67,.9);
+	--color-primary-dark-rgb: rgba(34,40,49,.9);
+
 
 	--color-white: #ffffff;
 	--color-black: #000000;
@@ -33,13 +49,9 @@ body {
 	--color-grey-dark-1: #777;
 	--color-grey-dark-2: #333;
 
-	--shadow-light: 0 2rem 5rem rgba(0, 0 ,0, .1);
+	--shadow-light: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	--shadow-dark: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
-
-input {
-	font-family: "Montserrat" !important;
-}
-	
 
 @font-face {
 	font-family: 'Montserrat';
@@ -47,7 +59,7 @@ input {
 	font-style: normal;
 	font-weight: 400
 }
-	
+
 
 @font-face {
 	font-family: 'Montserrat';
@@ -69,3 +81,11 @@ input {
 	font-style: normal;
 	font-weight: 700
 }
+
+@media only screen and (max-width:25rem) {
+	body {
+		background-image: unset;
+		background-color: var(--color-grey-light-1);	
+	}
+}
+
