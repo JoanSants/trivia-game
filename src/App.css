@@ -1,0 +1,13 @@
+.App {
+	position: relative;
+	background-color: var(--color-grey-light-1);
+	border-radius: .5rem;
+	box-shadow: var(--shadow-dark);
+	padding: 3rem;
+	width: 40rem;
+	height: 90vh;
+}
+
+.App > div {
+	height: 100%;
+}
