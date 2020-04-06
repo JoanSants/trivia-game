@@ -1,0 +1,35 @@
+.HomeTemplate {
+	display: grid;
+	height: 100%;
+	grid-template-rows: min-content 1fr min-content min-content;
+	text-align: center;
+	gap: 2rem;
+}
+
+.HomeTemplate__description {
+	display: grid;
+	gap: 2.5rem;
+	justify-items: center;
+	align-content: center;
+	padding: 3rem 0;
+}
+
+.HomeTemplate__description__logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background-color: var(--color-primary-light);
+	width: 15rem;
+	height: 15rem;
+	box-shadow: var(--shadow-light);
+}
+
+.HomeTemplate__description__logo svg {
+	height: 6rem;
+	width: 6rem;
+}
+
+.HomeTemplate__description__logo path {
+	fill: var(--color-white);
+}
