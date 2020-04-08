@@ -38,7 +38,7 @@
 		"global-require": 0,
 		"import/no-dynamic-require": 0,
         "no-underscore-dangle": 0,
-		"react/prop-types": [2, { "ignore": ["children"] }],
+		"react/prop-types": [2, { "ignore": ["children", "history"] }],
 		"react/no-did-update-set-state": 0
     }
 }
