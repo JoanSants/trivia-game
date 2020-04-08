@@ -1,0 +1,17 @@
+.Quiz {
+	display: grid;
+	text-align: center;
+	align-content: space-between;
+	grid-template-rows: min-content max-content min-content;	
+}
+
+.Quiz__question {
+	display: grid;
+	gap: 3rem;
+	justify-items: center;
+}
+
+.Quiz__actions {
+	display: flex;
+	justify-content: space-around;
+}
