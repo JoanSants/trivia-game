@@ -6,7 +6,7 @@ import Text from '../../atoms/Text';
 import Button from '../../atoms/Button';
 import ImgSvg from '../../atoms/ImgSvg';
 
-const HomeTemplate = ({ history }) => (
+export const HomeTemplate = ({ history }) => (
 	<div data-test="HomeTemplate" className="HomeTemplate">
 		<Text>Welcome to the Trivia Challenge!</Text>
 		<div className="HomeTemplate__description">

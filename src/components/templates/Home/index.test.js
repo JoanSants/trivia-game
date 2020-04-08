@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 
 import { findElementByAttr } from '../../../utils';
-import HomeTemplate from './index';
+import { HomeTemplate } from './index';
 
 const setup = (props = {}) => shallow(<HomeTemplate {...props} />);
 
