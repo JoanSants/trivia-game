@@ -3,10 +3,12 @@ import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
 import HomePage from './components/pages/Home';
+import QuizPage from './components/pages/Quiz';
 
 const App = () => (
 	<div className='App' data-test='App'>
 		<Switch>
+			<Route path="/quiz" component={QuizPage} />
 			<Route path="/" exact component={HomePage} />
 		</Switch>
 	</div>
