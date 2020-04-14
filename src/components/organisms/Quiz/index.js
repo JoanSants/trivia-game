@@ -15,13 +15,19 @@ class Quiz extends Component {
 		if (questions.length === 0) fetchQuestions({});
 	}
 
-	componentDidUpdate () {
-		const { questions, currentQuestion, history } = this.props;
-		if (questions.length === currentQuestion + 1) history.push('/results');
-	}
+	answerQuestion = (answer) => {
+		const {
+			updateQuestion,
+			currentQuestion,
+			questions,
+			history
+		} = this.props;
+		updateQuestion(answer);
+		if (currentQuestion + 1 === questions.length) history.push('/results');
+	};
 
 	render () {
-		const { questions, currentQuestion, updateQuestion } = this.props;
+		const { questions, currentQuestion } = this.props;
 		const { 
 			category = '', 
 			question = '', 
@@ -41,10 +47,10 @@ class Quiz extends Component {
 					<Text size="medium">{`${currentQuestion + 1} of ${questions.length}`}</Text>
 				</div>
 				<div className="Quiz__actions">
-					<Button onClick={() => {updateQuestion({id, isCorrect: correct_answer === "True"})}}>
+					<Button onClick={() => {this.answerQuestion({id, isCorrect: correct_answer === "True"})}}>
 						True
 					</Button>
-					<Button onClick={() => { updateQuestion({ id, isCorrect: correct_answer === "False" }) }}>
+					<Button onClick={() => {this.answerQuestion({ id, isCorrect: correct_answer === "False" }) }}>
 						False
 					</Button>
 				</div>
