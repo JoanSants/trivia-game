@@ -1,12 +1,11 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 
 import './index.css';
 import Text from '../../atoms/Text';
-import Button from '../../atoms/Button';
 import ImgSvg from '../../atoms/ImgSvg';
+import StartGame from '../../organisms/StartGame';
 
-export const HomeTemplate = ({ history }) => (
+export const HomeTemplate = () => (
 	<div data-test="HomeTemplate" className="HomeTemplate">
 		<Text>Welcome to the Trivia Challenge!</Text>
 		<div className="HomeTemplate__description">
@@ -16,10 +15,8 @@ export const HomeTemplate = ({ history }) => (
 			<Text size="small">You will be presented with 10 True or False questions.</Text>
 		</div>
 		<Text>Can you score 100%?</Text>
-		<Button fullWidth onClick={() => history.push('/quiz')}>
-			Begin
-		</Button>
+		<StartGame />
 	</div>
 );
 
-export default withRouter(HomeTemplate);
+export default HomeTemplate;
