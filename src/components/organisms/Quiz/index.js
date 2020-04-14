@@ -11,7 +11,14 @@ import Card from '../../atoms/Card';
 
 class Quiz extends Component {
 	componentDidMount () {
-		const { fetchQuestions, questions } = this.props;
+		const {
+			fetchQuestions,
+			questions,
+			startedGame,
+			history
+		} = this.props;
+
+		if (!startedGame) history.push('/');
 		if (questions.length === 0) fetchQuestions({});
 	}
 
@@ -67,12 +74,14 @@ Quiz.propTypes = {
 		id: PropTypes.string
 	})),
 	currentQuestion: PropTypes.number.isRequired,
-	updateQuestion: PropTypes.func.isRequired
+	updateQuestion: PropTypes.func.isRequired,
+	startedGame: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
 	questions: state.questions.questions,
-	currentQuestion: state.questions.current
+	currentQuestion: state.questions.current,
+	startedGame: state.interface.started
 });
 
 const mapActionsToProps = dispatch => ({
