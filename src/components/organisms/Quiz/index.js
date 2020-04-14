@@ -8,6 +8,7 @@ import * as actions from '../../../store/actions';
 import Text from '../../atoms/Text';
 import Button from '../../atoms/Button';
 import Card from '../../atoms/Card';
+import Spinner from '../../atoms/Spinner';
 
 class Quiz extends Component {
 	componentDidMount () {
@@ -19,7 +20,7 @@ class Quiz extends Component {
 		} = this.props;
 
 		if (!startedGame) history.push('/');
-		if (questions.length === 0) fetchQuestions({});
+		if (questions.length === 0 && startedGame) fetchQuestions({});
 	}
 
 	answerQuestion = (answer) => {
@@ -29,35 +30,51 @@ class Quiz extends Component {
 			questions,
 			history
 		} = this.props;
+		
 		updateQuestion(answer);
 		if (currentQuestion + 1 === questions.length) history.push('/results');
 	};
 
 	render () {
-		const { questions, currentQuestion } = this.props;
+		const {
+			questions,
+			currentQuestion,
+			fetchQuestionsStatus
+		} = this.props;
 		const { 
 			category = '', 
 			question = '', 
 			id = 0 ,
 			correct_answer = "True"
 		} = questions.length > 0 && currentQuestion <= questions.length ? questions[currentQuestion] : {};
+		const { loading = false } = fetchQuestionsStatus;
 
 		return (
 			<div className="Quiz">
 				<Text size="medium">{category}</Text>
 				<div className="Quiz__question">
-					{question !== '' && (
-						<Card>
-							<Text>{question}</Text>
-						</Card>
+					{loading ? (
+						<Spinner />
+					) : (
+						<>
+							<Card>
+								<Text>{question}</Text>
+							</Card>
+							<Text size="medium">{`${currentQuestion + 1} of ${questions.length}`}</Text>
+						</>
 					)}
-					<Text size="medium">{`${currentQuestion + 1} of ${questions.length}`}</Text>
 				</div>
 				<div className="Quiz__actions">
-					<Button onClick={() => {this.answerQuestion({id, isCorrect: correct_answer === "True"})}}>
+					<Button 
+						onClick={() => {this.answerQuestion({id, isCorrect: correct_answer === "True"})}}
+						disabled={loading}
+					>
 						True
 					</Button>
-					<Button onClick={() => {this.answerQuestion({ id, isCorrect: correct_answer === "False" }) }}>
+					<Button 
+						onClick={() => {this.answerQuestion({ id, isCorrect: correct_answer === "False" }) }}
+						disabled={loading}
+					>
 						False
 					</Button>
 				</div>
@@ -75,13 +92,17 @@ Quiz.propTypes = {
 	})),
 	currentQuestion: PropTypes.number.isRequired,
 	updateQuestion: PropTypes.func.isRequired,
-	startedGame: PropTypes.bool.isRequired
+	startedGame: PropTypes.bool.isRequired,
+	fetchQuestionsStatus: PropTypes.shape({
+		loading: PropTypes.bool
+	}).isRequired
 };
 
 const mapStateToProps = state => ({
 	questions: state.questions.questions,
 	currentQuestion: state.questions.current,
-	startedGame: state.interface.started
+	startedGame: state.interface.started,
+	fetchQuestionsStatus: state.questions.fetchQuestionsStatus
 });
 
 const mapActionsToProps = dispatch => ({
