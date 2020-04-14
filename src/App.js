@@ -10,7 +10,7 @@ const App = () => (
 	<div className='App' data-test='App'>
 		<Switch>
 			<Route path="/quiz" component={QuizPage} />
-			<Route path="/result" component={ResultPage} />
+			<Route path="/results" component={ResultPage} />
 			<Route path="/" exact component={HomePage} />
 		</Switch>
 	</div>
