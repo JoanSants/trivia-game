@@ -1,0 +1,46 @@
+.ResultItem {
+	display: grid;
+	align-items: center;
+	grid-auto-flow: column;
+	grid-template-columns: min-content 1fr;
+	gap: 2rem;
+	box-shadow: var(--shadow-light);
+	border-radius:8px;
+	padding: 1rem;
+	margin: 1rem 0;
+}
+
+.ResultItem__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	width: 3rem;
+	height: 3rem;
+	box-shadow: var(--shadow-light);
+}
+
+.ResultItem svg {
+	width: 1.5rem;
+}
+
+.ResultItem path {
+	fill: var(--color-white);
+}
+
+.ResultItem__icon--success {
+	background-color: var(--color-green);
+}
+
+.ResultItem__icon--error {
+	background-color: var(--color-red);
+}
+
+.ResultItem__content {
+	display: grid;
+	gap: 1rem;
+}
+
+.ResultItem__content p:nth-child(2){
+	color: var(--color-red);
+}
