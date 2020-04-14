@@ -10,7 +10,7 @@ const Text = ({ children, size }) => (
 );
 
 Text.propTypes ={
-	size: PropTypes.oneOf(['small', 'medium', 'bigger', 'big', 'biggest'])
+	size: PropTypes.oneOf(['smallest', 'small', 'medium', 'bigger', 'big', 'biggest'])
 };
 
 
