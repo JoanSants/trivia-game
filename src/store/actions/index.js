@@ -1,4 +1,9 @@
 export {
 	fetchQuestions,
-	updateQuestion
+	updateQuestion,
+	clearQuestions
 } from './questions';
+
+export {
+	startGame
+} from './interface';

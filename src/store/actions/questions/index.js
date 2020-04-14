@@ -33,3 +33,5 @@ export const updateQuestion = (questionInfo) => (dispatch) => {
 		payload: questionInfo
 	});
 };
+
+export const clearQuestions = () => (dispatch) => dispatch({ type: actionTypes.CLEAR_QUESTIONS});

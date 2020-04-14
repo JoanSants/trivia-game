@@ -53,6 +53,8 @@ export default (state = initialState, action) => {
 		})
 	case actionTypes.UPDATE_QUESTION:
 		return updateQuestion(state, action)
+	case actionTypes.CLEAR_QUESTIONS:
+		return updateObject(state, { ...initialState });
 	default:
 		return state;
 	}
