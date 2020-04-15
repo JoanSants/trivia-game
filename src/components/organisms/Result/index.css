@@ -6,7 +6,13 @@
 }
 
 .Result__header {
+	display: grid;
+	gap: .5rem;
 	text-align: center;
+}
+
+.Result__header p:last-of-type {
+	color: var(--color-primary);
 }
 
 .Result__results {

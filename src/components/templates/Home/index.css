@@ -12,6 +12,7 @@
 	justify-items: center;
 	align-content: center;
 	padding: 3rem 0;
+	color: var(--color-grey-dark-2);
 }
 
 .HomeTemplate__description__logo {

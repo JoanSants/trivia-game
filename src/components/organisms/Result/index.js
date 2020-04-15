@@ -31,7 +31,7 @@ class Result extends Component {
 			<div className="Result">
 				<div className="Result__header">
 					<Text size="small">You scored</Text>
-					<Text>{`${correctAnswers} / ${questions.length}`}</Text>
+					<Text size="bigger">{`${correctAnswers} / ${questions.length}`}</Text>
 				</div>
 				<div className="Result__results">
 					<div className="Result__results__wrapper">

@@ -11,6 +11,10 @@
 	justify-items: center;
 }
 
+.Quiz__question > p {
+	color: var(--color-grey-dark-1);
+}
+
 .Quiz__actions {
 	display: flex;
 	justify-content: space-around;

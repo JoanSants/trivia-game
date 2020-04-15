@@ -14,31 +14,26 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 50%;
 	width: 3rem;
 	height: 3rem;
-	box-shadow: var(--shadow-light);
 }
 
 .ResultItem svg {
 	width: 1.5rem;
 }
 
-.ResultItem path {
-	fill: var(--color-white);
+.ResultItem__icon--success path {
+	fill: var(--color-green);
 }
 
-.ResultItem__icon--success {
-	background-color: var(--color-green);
-}
-
-.ResultItem__icon--error {
-	background-color: var(--color-red);
+.ResultItem__icon--error path {
+	fill: var(--color-red);
 }
 
 .ResultItem__content {
 	display: grid;
 	gap: 1rem;
+	color: var(--color-grey-dark-2);
 }
 
 .ResultItem__content p:nth-child(2){
