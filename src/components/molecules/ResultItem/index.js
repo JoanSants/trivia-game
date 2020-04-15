@@ -12,7 +12,7 @@ const ResultItem = ({ question, isCorrect, correctAnswer }) => (
 		</div>
 		<div className="ResultItem__content">
 			<Text size="smallest">{question}</Text>
-			{!isCorrect && <Text size="smallest">{`The corrent answer was ${correctAnswer}`}</Text>}
+			{!isCorrect && <Text size="smallest">{`The correct answer was ${correctAnswer}`}</Text>}
 		</div>
 	</div>
 );
